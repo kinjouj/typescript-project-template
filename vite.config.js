@@ -3,7 +3,6 @@ import { defineConfig } from 'vite'
 import { viteStaticCopy } from 'vite-plugin-static-copy';
 
 export default defineConfig({
-  /*
   plugins: [
     viteStaticCopy({
       targets: [
@@ -14,9 +13,9 @@ export default defineConfig({
       ]
     })
   ],
-  */
   build: {
-    minify: 'esbuild',
+    //minify: 'esbuild',
+    minify: false,
     outDir: './build',
     emptyOutDir: false,
     copyPublicDir: false,
@@ -32,7 +31,7 @@ export default defineConfig({
         app: resolve(__dirname, 'src/index.tsx'),
       },
       output: {
-        entryFileNames: 'app.js',
+        entryFileNames: '[name].js',
       },
     },
   },

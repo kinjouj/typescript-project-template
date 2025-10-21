@@ -1,7 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
+import Sample from './components/Sample';
 
-const message = 'hoge fuga foobar';
 const container = document.getElementById('root');
 
 if (container == null) {
@@ -11,8 +12,11 @@ if (container == null) {
 const root = createRoot(container);
 root.render(
   <React.StrictMode>
-    <div>
-      <h1>{message}</h1>
-    </div>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/sample" replace />} />
+        <Route path="/sample" element={<Sample />} />
+      </Routes>
+    </HashRouter>
   </React.StrictMode>
 );
