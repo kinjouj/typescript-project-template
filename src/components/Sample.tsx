@@ -1,36 +1,36 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useReducer } from 'react';
+import { dataFetchReducer } from '../reducers/dataFetchReducer';
 
 const Sample = (): React.JSX.Element => {
-  const [message, setMessage] = useState<string | null>(null);
-  const [isError, setIsError] = useState(false);
+  const [state, dispatch] = useReducer(dataFetchReducer, { message: null, isError: false });
+  const { message, isError } = state;
 
   useEffect(() => {
+    dispatch({ type: 'FETCH_START' });
     fetch('/test.txt').then((res) => {
       if (!res.ok) {
+        dispatch({ type: 'FETCH_ERROR' });
         return;
       }
 
       res.text().then((data) => {
         setTimeout(() => {
-          setMessage(data);
-          setIsError(false);
+          dispatch({ type: 'FETCH_SUCCESS', payload: data });
         }, 1000);
       }).catch(() => {
-        setMessage(null);
-        setIsError(true);
+        dispatch({ type: 'FETCH_ERROR' });
       });
     }).catch(() => {
-      setMessage(null);
-      setIsError(true);
+      dispatch({ type: 'FETCH_ERROR' });
     });
-  });
+  }, []);
 
   if (isError) {
     return (<h4>Error</h4>);
   }
 
   if (message === null) {
-    return (<h4>Not Found</h4>);
+    return (<h4>loading...</h4>);
   }
 
   return (

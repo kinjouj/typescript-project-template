@@ -1,6 +1,7 @@
 const { TextEncoder } = require('util');
 
 module.exports = {
+  cacheDirectory: './node_modules/.jest',
   clearMocks: true,
   restoreMocks: true,
   preset: 'ts-jest',
