@@ -1,1 +1,4 @@
-export type DataFetchStateType = { message: string | null, isError: boolean };
+export type DataFetchStateType = {
+  message: string | null
+  isError: boolean
+};
