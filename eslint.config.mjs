@@ -41,6 +41,7 @@ export default tseslint.config(
       'curly': ['error', 'all'],
       'no-empty': ['error', { allowEmptyCatch: true }],
       'no-constant-condition': 'error',
+      "@stylistic/array-bracket-spacing": ["error", "always", { singleValue: false}],
       '@stylistic/comma-dangle': [
         'error',
         {
