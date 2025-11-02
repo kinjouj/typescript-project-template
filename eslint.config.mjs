@@ -1,26 +1,26 @@
-import eslint from '@eslint/js';
-import globals from 'globals';
-import react from 'eslint-plugin-react';
-import reactHooks from 'eslint-plugin-react-hooks';
-import stylistic from '@stylistic/eslint-plugin';
-import jest from 'eslint-plugin-jest';
-import tseslint from 'typescript-eslint';
+import eslint from "@eslint/js";
+import globals from "globals";
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import stylistic from "@stylistic/eslint-plugin";
+import jest from "eslint-plugin-jest";
+import tseslint from "typescript-eslint";
 
 export default tseslint.config(
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ["**/*.{ts,tsx}"],
     plugins: {
-      'react': react,
-      'react-hooks': reactHooks,
-      '@stylistic': stylistic,
-      'jest': jest
+      "react": react,
+      "react-hooks": reactHooks,
+      "@stylistic": stylistic,
+      "jest": jest
     },
     extends: [
       tseslint.configs.recommendedTypeChecked,
       stylistic.configs.recommended,
       tseslint.configs.stylisticTypeChecked,
       react.configs.flat.recommended,
-      react.configs.flat['jsx-runtime'],
+      react.configs.flat["jsx-runtime"],
       reactHooks.configs.flat.recommended
     ],
     languageOptions: {
@@ -36,45 +36,46 @@ export default tseslint.config(
       }
     },
     rules: {
-      ...jest.configs['recommended'].rules,
-      ...jest.configs['style'].rules,
-      'curly': ['error', 'all'],
-      'no-empty': ['error', { allowEmptyCatch: true }],
-      'no-constant-condition': 'error',
+      ...jest.configs["recommended"].rules,
+      ...jest.configs["style"].rules,
+      "curly": ["error", "all"],
+      "no-empty": ["error", { allowEmptyCatch: true }],
+      "no-constant-condition": "error",
+      "@stylistic/arrow-parens": ["error", "always"],
       "@stylistic/array-bracket-spacing": ["error", "always", { singleValue: false}],
-      '@stylistic/comma-dangle': [
-        'error',
+      "@stylistic/comma-dangle": [
+        "error",
         {
-          'arrays': 'always-multiline',
-          'objects': 'always-multiline',
-          'functions': 'ignore'
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "functions": "ignore"
         }
       ],
-      '@stylistic/semi': ['error', 'always'],
-      '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
-      '@stylistic/max-statements-per-line': ['error', { max: 2 }],
-      '@typescript-eslint/array-type': 'error',
-      '@typescript-eslint/consistent-type-definitions': 'off',
-      '@typescript-eslint/consistent-type-imports': 'error',
-      '@typescript-eslint/explicit-function-return-type': 'error',
-      '@typescript-eslint/no-non-null-assertion': 'error',
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
+      "@stylistic/semi": ["error", "always"],
+      "@stylistic/brace-style": ["error", "1tbs", { allowSingleLine: true }],
+      "@stylistic/max-statements-per-line": ["error", { max: 2 }],
+      "@typescript-eslint/array-type": "error",
+      "@typescript-eslint/consistent-type-definitions": "off",
+      "@typescript-eslint/consistent-type-imports": "error",
+      "@typescript-eslint/explicit-function-return-type": "error",
+      "@typescript-eslint/no-non-null-assertion": "error",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
         {
-          'argsIgnorePattern': '^_',
-          'varsIgnorePattern': '^_',
-          'caughtErrorsIgnorePattern': '^_',
-          'destructuredArrayIgnorePattern': '^_'
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_",
+          "caughtErrorsIgnorePattern": "^_",
+          "destructuredArrayIgnorePattern": "^_"
         }
       ]
     },
     settings: {
       react: {
-        version: 'detect'
+        version: "detect"
       }
     }
   },
   {
-    ignores: ['**/*.mjs', 'build/**/*', 'coverage/**/*']
+    ignores: ["**/*.js"]
   }
 );
