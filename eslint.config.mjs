@@ -3,6 +3,7 @@ import globals from "globals";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import stylistic from "@stylistic/eslint-plugin";
+import checkFile from 'eslint-plugin-check-file';
 import jest from "eslint-plugin-jest";
 import tseslint from "typescript-eslint";
 
@@ -13,6 +14,7 @@ export default tseslint.config(
       "react": react,
       "react-hooks": reactHooks,
       "@stylistic": stylistic,
+      "check-file": checkFile,
       "jest": jest
     },
     extends: [
@@ -96,6 +98,18 @@ export default tseslint.config(
       "react/jsx-no-bind": "error",
       "react/jsx-no-leaked-render": "error",
       "react/no-array-index-key": "error",
+      "check-file/filename-naming-convention": [
+        "error",
+        {
+          "**/index.{ts,tsx}": "CAMEL_CASE",
+          "**/api/*": "CAMEL_CASE",
+          "**/hooks/!(index).ts": "use[A-Z][a-zA-Z0-9]*",
+          "**/!(index).{jsx,tsx}": "PASCAL_CASE"
+        },
+        {
+          "ignoreMiddleExtensions": true
+        }
+      ]
     },
     settings: {
       react: {
