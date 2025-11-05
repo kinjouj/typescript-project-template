@@ -58,6 +58,26 @@ export default tseslint.config(
       "@typescript-eslint/consistent-type-definitions": "off",
       "@typescript-eslint/consistent-type-imports": "error",
       "@typescript-eslint/explicit-function-return-type": "error",
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          "selector": ["variable", "function"],
+          "format": ["camelCase", "PascalCase", "UPPER_CASE"],
+          "leadingUnderscore": "allow"
+        },
+        {
+          "selector": ["typeAlias", "interface", "class", "enum"],
+          "format": ["PascalCase"]
+        },
+        {
+          "selector": ["variable", "function"],
+          "format": ["PascalCase"],
+          "custom": {
+            "regex": "^[A-Z]",
+            "match": true
+          }
+        }
+      ],
       "@typescript-eslint/no-non-null-assertion": "error",
       "@typescript-eslint/no-unused-vars": [
         "warn",
@@ -67,7 +87,15 @@ export default tseslint.config(
           "caughtErrorsIgnorePattern": "^_",
           "destructuredArrayIgnorePattern": "^_"
         }
-      ]
+      ],
+      "react/button-has-type": "error",
+      "react/function-component-definition": ["error", {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": []
+      }],
+      "react/jsx-no-bind": "error",
+      "react/jsx-no-leaked-render": "error",
+      "react/no-array-index-key": "error",
     },
     settings: {
       react: {
