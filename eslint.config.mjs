@@ -1,7 +1,7 @@
 import { defineConfig } from "eslint/config";
 import eslint from "@eslint/js";
-import stylistic from "@stylistic/eslint-plugin";
 import tseslint from "typescript-eslint";
+import stylistic from "@stylistic/eslint-plugin";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import checkFile from 'eslint-plugin-check-file';
@@ -120,5 +120,5 @@ export default defineConfig(
         version: "detect",
       },
     },
-  }
+  },
 );
