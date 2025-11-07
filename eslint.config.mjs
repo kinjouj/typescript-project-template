@@ -18,6 +18,7 @@ export default defineConfig(
   react.configs.flat.recommended,
   react.configs.flat["jsx-runtime"],
   reactHooks.configs.flat.recommended,
+  inlinePropsPlugin.configs.recommended,
   {
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
@@ -38,7 +39,6 @@ export default defineConfig(
       "@stylistic": stylistic,
       "check-file": checkFile,
       "jest": jest,
-      "my-rule": inlinePropsPlugin
     },
     rules: {
       ...jest.configs["recommended"].rules,
@@ -94,7 +94,28 @@ export default defineConfig(
           destructuredArrayIgnorePattern: "^_",
         },
       ],
-      "my-rule/no-inline-props": "error"
+      "react/button-has-type": "error",
+      "react/function-component-definition": ["error", {
+        namedComponents: "arrow-function",
+        unnamedComponents: [],
+      }],
+      "react/jsx-handler-names": "error",
+      "react/jsx-no-bind": "error",
+      "react/jsx-no-leaked-render": "error",
+      "react/jsx-no-useless-fragment": "error",
+      "react/no-array-index-key": "error",
+      "check-file/filename-naming-convention": [
+        "error",
+        {
+          "**/index.{ts,tsx}": "CAMEL_CASE",
+          "**/api/*": "CAMEL_CASE",
+          "**/hooks/!(index).ts": "use[A-Z][a-zA-Z0-9]*",
+          "**/!(index).{jsx,tsx}": "PASCAL_CASE",
+        },
+        {
+          ignoreMiddleExtensions: true,
+        },
+      ],
     },
     settings: {
       react: {
