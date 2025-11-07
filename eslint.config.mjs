@@ -7,6 +7,7 @@ import reactHooks from "eslint-plugin-react-hooks";
 import checkFile from 'eslint-plugin-check-file';
 import jest from "eslint-plugin-jest";
 import globals from "globals";
+import inlinePropsPlugin from "eslint-plugin-no-inline-props";
 
 export default defineConfig(
   { ignores: ["**/*.js", "**/*.mjs"] },
@@ -37,6 +38,7 @@ export default defineConfig(
       "@stylistic": stylistic,
       "check-file": checkFile,
       "jest": jest,
+      "my-rule": inlinePropsPlugin
     },
     rules: {
       ...jest.configs["recommended"].rules,
@@ -92,28 +94,7 @@ export default defineConfig(
           destructuredArrayIgnorePattern: "^_",
         },
       ],
-      "react/button-has-type": "error",
-      "react/function-component-definition": ["error", {
-        namedComponents: "arrow-function",
-        unnamedComponents: [],
-      }],
-      "react/jsx-handler-names": "error",
-      "react/jsx-no-bind": "error",
-      "react/jsx-no-leaked-render": "error",
-      "react/jsx-no-useless-fragment": "error",
-      "react/no-array-index-key": "error",
-      "check-file/filename-naming-convention": [
-        "error",
-        {
-          "**/index.{ts,tsx}": "CAMEL_CASE",
-          "**/api/*": "CAMEL_CASE",
-          "**/hooks/!(index).ts": "use[A-Z][a-zA-Z0-9]*",
-          "**/!(index).{jsx,tsx}": "PASCAL_CASE",
-        },
-        {
-          ignoreMiddleExtensions: true,
-        },
-      ],
+      "my-rule/no-inline-props": "error"
     },
     settings: {
       react: {

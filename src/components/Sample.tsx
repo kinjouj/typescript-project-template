@@ -1,5 +1,6 @@
 import { useEffect, useReducer } from 'react';
 import { dataFetchReducer } from '../reducers/dataFetchReducer';
+import Dummy from './Dummy';
 
 const Sample = (): React.JSX.Element => {
   const [ state, dispatch ] = useReducer(dataFetchReducer, { message: null, isError: false });
@@ -35,7 +36,7 @@ const Sample = (): React.JSX.Element => {
 
   return (
     <div>
-      <h1>{message}</h1>
+      <Dummy message={message} />
     </div>
   );
 };
