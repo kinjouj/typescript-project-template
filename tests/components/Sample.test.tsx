@@ -1,5 +1,4 @@
 import { act, render, screen, waitFor } from '@testing-library/react';
-
 import Sample from '../../src/pages/Sample';
 import '@testing-library/jest-dom';
 

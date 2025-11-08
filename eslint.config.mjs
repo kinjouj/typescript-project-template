@@ -109,10 +109,13 @@ export default defineConfig(
       "check-file/filename-naming-convention": [
         "error",
         {
+          "**/api/*": "CAMEL_CASE",
           "**/hooks/!(index).ts": "use[A-Z][a-zA-Z0-9]*",
           "**/components/!(index).{jsx,tsx}": "PASCAL_CASE",
           "**/constants/*.ts": "CAMEL_CASE",
-          "**/api/*": "CAMEL_CASE",
+          "**/pages/!(index).{jsx,tsx}": "PASCAL_CASE",
+          "**/reducers/*.ts": "CAMEL_CASE",
+          "**/types/!(index).ts": "PASCAL_CASE",
           "**/index.{ts,tsx}": "CAMEL_CASE",
         },
         {
@@ -125,14 +128,15 @@ export default defineConfig(
           "groups": [
             "builtin",
             "external",
-            "internal",
-            "parent",
-            "sibling",
+            [
+              "internal",
+              "parent",
+              "sibling",
+            ],
             "index",
-            "object",
-            "type"
+            "type",
           ],
-          "newlines-between": "always",
+          "newlines-between": "never",
         },
       ],
     },

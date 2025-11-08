@@ -1,5 +1,4 @@
 import { useEffect, useReducer } from 'react';
-
 import { dataFetchReducer } from '../reducers/dataFetchReducer';
 import Dummy from '../components/Dummy';
 
