@@ -1,7 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Sample from './components/Sample';
+
+import Sample from './pages/Sample';
 
 const container = document.getElementById('root');
 

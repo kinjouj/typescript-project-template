@@ -6,6 +6,7 @@ import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import checkFile from 'eslint-plugin-check-file';
 import jest from "eslint-plugin-jest";
+import importPlugin from 'eslint-plugin-import';
 import globals from "globals";
 import inlinePropsPlugin from "eslint-plugin-no-inline-props";
 
@@ -39,6 +40,7 @@ export default defineConfig(
       "@stylistic": stylistic,
       "check-file": checkFile,
       "jest": jest,
+      "import": importPlugin,
     },
     rules: {
       ...jest.configs["recommended"].rules,
@@ -107,13 +109,30 @@ export default defineConfig(
       "check-file/filename-naming-convention": [
         "error",
         {
-          "**/index.{ts,tsx}": "CAMEL_CASE",
-          "**/api/*": "CAMEL_CASE",
           "**/hooks/!(index).ts": "use[A-Z][a-zA-Z0-9]*",
-          "**/!(index).{jsx,tsx}": "PASCAL_CASE",
+          "**/components/!(index).{jsx,tsx}": "PASCAL_CASE",
+          "**/constants/*.ts": "CAMEL_CASE",
+          "**/api/*": "CAMEL_CASE",
+          "**/index.{ts,tsx}": "CAMEL_CASE",
         },
         {
           ignoreMiddleExtensions: true,
+        },
+      ],
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+            "object",
+            "type"
+          ],
+          "newlines-between": "always",
         },
       ],
     },

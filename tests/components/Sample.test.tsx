@@ -1,5 +1,6 @@
 import { act, render, screen, waitFor } from '@testing-library/react';
-import Sample from '../../src/components/Sample';
+
+import Sample from '../../src/pages/Sample';
 import '@testing-library/jest-dom';
 
 const mockFetch = jest.fn();
