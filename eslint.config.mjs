@@ -4,11 +4,11 @@ import tseslint from "typescript-eslint";
 import stylistic from "@stylistic/eslint-plugin";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
+import inlinePropsPlugin from "eslint-plugin-no-inline-props";
+import globals from "globals";
 import checkFile from "eslint-plugin-check-file";
 import jest from "eslint-plugin-jest";
 import importPlugin from "eslint-plugin-import";
-import globals from "globals";
-import inlinePropsPlugin from "eslint-plugin-no-inline-props";
 
 export default defineConfig(
   { ignores: ["**/*.js", "**/*.mjs"] },
