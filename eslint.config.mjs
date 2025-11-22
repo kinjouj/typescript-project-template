@@ -64,7 +64,7 @@ export default defineConfig(
         "error",
         {
           "callbacksLast": true,
-          "reservedFirst": ["key", "ref", "id", "type", "className"],
+          "reservedFirst": ["key", "ref", "id", "type", "name", "className"],
           "shorthandLast": true,
           "noSortAlphabetically": true,
         },
