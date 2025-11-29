@@ -96,14 +96,6 @@ export default defineConfig(
           selector: ["typeAlias", "interface", "class", "enum"],
           format: ["PascalCase"],
         },
-        {
-          selector: ["variable", "function"],
-          format: ["PascalCase"],
-          custom: {
-            regex: "^[A-Z]",
-            match: true,
-          },
-        },
       ],
       "@typescript-eslint/no-floating-promises": "error",
       "@typescript-eslint/no-non-null-assertion": "error",
