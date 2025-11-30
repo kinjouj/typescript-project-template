@@ -120,13 +120,12 @@ export default defineConfig(
       "check-file/filename-naming-convention": [
         "error",
         {
-          "**/api/*": "CAMEL_CASE",
           "**/components/!(index).{jsx,tsx}": "PASCAL_CASE",
           "**/constants/*.ts": "CAMEL_CASE",
           "**/hooks/!(index).ts": "use[A-Z][a-zA-Z0-9]*",
           "**/pages/!(index).{jsx,tsx}": "PASCAL_CASE",
           "**/reducers/*.ts": "CAMEL_CASE",
-          "**/types/!(index).ts": "PASCAL_CASE",
+          "**/types/!(index).ts": "KEBAB_CASE",
         },
         {
           ignoreMiddleExtensions: true,

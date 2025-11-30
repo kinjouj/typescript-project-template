@@ -1,2 +1,1 @@
-export * from './ActionType';
-export * from './DataFetchStateType';
+export * from './fetch-type';
