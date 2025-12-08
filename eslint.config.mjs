@@ -50,7 +50,7 @@ export default defineConfig(
       "no-constant-condition": "error",
       "no-restricted-imports": ["error", { "paths": ["./"] }],
       "@stylistic/arrow-parens": ["error", "always"],
-      "@stylistic/array-bracket-spacing": ["error", "always", { singleValue: false }],
+      "@stylistic/array-bracket-spacing": ["error", "never"],
       "@stylistic/brace-style": ["error", "1tbs", { allowSingleLine: true }],
       "@stylistic/comma-dangle": [
         "error",
@@ -137,7 +137,9 @@ export default defineConfig(
           "groups": [
             "builtin",
             "external",
-            [ "internal", "parent", "sibling" ],
+            "internal",
+            "parent",
+            "sibling",
             "index",
             "type",
           ],

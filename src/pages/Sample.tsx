@@ -3,7 +3,7 @@ import { dataFetchReducer } from '../reducers/dataFetchReducer';
 import Dummy from '../components/Dummy';
 
 const Sample = (): React.JSX.Element => {
-  const [ state, dispatch ] = useReducer(dataFetchReducer, { message: null, isError: false });
+  const [state, dispatch] = useReducer(dataFetchReducer, { message: null, isError: false });
   const { message, isError } = state;
 
   useEffect(() => {
