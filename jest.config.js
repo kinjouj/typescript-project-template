@@ -10,5 +10,6 @@ module.exports = {
     TextEncoder: TextEncoder
   },
   collectCoverage: true,
-  coverageReporters: [ "text", "html", "lcov" ]
+  coverageReporters: [ "text", "html", "lcov" ],
+  watchman: false,
 };
