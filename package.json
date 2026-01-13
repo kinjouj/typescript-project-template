@@ -2,7 +2,7 @@
   "license": "MIT",
   "scripts": {
     "check": "tsc --noEmit",
-    "lint": "npx eslint --cache --cache-location=node_modules/.eslintcache",
+    "lint": "eslint --cache --cache-location=node_modules/.eslintcache",
     "build": "npm run check && npm run lint && vite build",
     "test": "npx jest"
   },
