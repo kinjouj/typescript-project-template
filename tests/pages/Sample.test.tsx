@@ -1,9 +1,7 @@
-import { act, render, screen, waitFor } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
+import { MemoryRouter, Outlet, Route, Routes } from 'react-router-dom';
 import Sample from '../../src/pages/Sample';
 import '@testing-library/jest-dom';
-
-const mockFetch = jest.fn();
-globalThis.fetch = mockFetch;
 
 describe('Sample', () => {
   beforeEach(() => {
@@ -13,38 +11,26 @@ describe('Sample', () => {
 
   afterEach(() => {
     jest.useRealTimers();
-    mockFetch.mockClear();
-    mockFetch.mockReset();
   });
 
   test('<Sample>', async () => {
-    mockFetch.mockResolvedValue({
-      ok: true,
-      text: () => Promise.resolve('Hello World!'),
-    });
+    const data = { data: { message: 'Sample test' } };
     render(
-      <Sample />
+      <MemoryRouter initialEntries={['/sample']}>
+        <Routes>
+          <Route element={<Outlet context={data} />}>
+            <Route path="/sample" element={<Sample />} />
+          </Route>
+        </Routes>
+      </MemoryRouter>
     );
 
-    await waitFor(() => expect(mockFetch).toHaveBeenCalled());
     await act(async () => {
-      jest.advanceTimersByTime(1000);
+      jest.runAllTimers();
       await Promise.resolve();
     });
 
-    expect(await screen.findByText('Hello World!')).toBeInTheDocument();
-    screen.debug();
-  });
-
-  test('if fetch ok:false', async () => {
-    mockFetch.mockResolvedValue({ ok: false });
-    render(<Sample />);
-    await waitFor(() => expect(mockFetch).toHaveBeenCalled());
-    await act(async () => {
-      jest.advanceTimersByTime(1000);
-      await Promise.resolve();
-    });
-    expect(await screen.findByText('Error')).toBeInTheDocument();
+    expect(await screen.findByText('Sample test')).toBeInTheDocument();
     screen.debug();
   });
 });

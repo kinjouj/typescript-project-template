@@ -1,20 +1,12 @@
-import Dummy from '../components/Dummy';
-import useFetchData from '../hooks/useFetchData';
+import { useOutletContext } from 'react-router-dom';
+import type { DataOutletType } from '../types/outlet-types';
 
 const Sample = (): React.JSX.Element => {
-  const { message, isError } = useFetchData();
-
-  if (isError) {
-    return (<h4>Error</h4>);
-  }
-
-  if (message === null) {
-    return (<h4>loading...</h4>);
-  }
+  const { data } = useOutletContext<DataOutletType>();
 
   return (
     <div>
-      <Dummy message={message} />
+      <h1>{data.message}</h1>
     </div>
   );
 };
