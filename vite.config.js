@@ -1,19 +1,10 @@
 import { resolve } from "node:path"
 import { defineConfig } from "vite"
-import { viteStaticCopy } from "vite-plugin-static-copy";
-import react from "@vitejs/plugin-react-swc";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [
     react(),
-    viteStaticCopy({
-      targets: [
-        {
-          src: "./public/*",
-          dest: "./"
-        }
-      ]
-    })
   ],
   build: {
     //minify: "esbuild",
@@ -24,16 +15,17 @@ export default defineConfig({
     rollupOptions: {
       onwarn(warning, warn) {
         if (warning.code === "MODULE_LEVEL_DIRECTIVE") {
-          return; 
+          return;
         }
 
         warn(warning);
       },
       input: {
-        app: resolve(__dirname, "src/index.tsx"),
+        app: "index.html",
       },
       output: {
-        entryFileNames: "[name].js",
+        entryFileNames: 'js/app.js',
+        chunkFileNames: 'js/[name]-[hash].js'
       },
     },
   },
