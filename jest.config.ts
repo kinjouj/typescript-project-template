@@ -1,11 +1,13 @@
-import { TextEncoder } from 'node:util';
-
 export default {
   cacheDirectory: './node_modules/.jest',
   clearMocks: true,
   restoreMocks: true,
-  preset: 'ts-jest',
   testEnvironment: 'jsdom',
+  transform: {
+    '^.+\\.tsx?$': ['ts-jest', {
+      tsconfig: './tsconfig.node.json',
+    }],
+  },
   globals: {
     TextEncoder: TextEncoder,
   },
