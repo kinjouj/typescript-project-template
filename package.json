@@ -7,6 +7,7 @@
     "test": "npx jest"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.5",
     "@jest/globals": "^30.4.1",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@testing-library/jest-dom": "^6.9.1",
@@ -23,6 +24,7 @@
     "eslint-plugin-perfectionist": "^5.10.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^17.7.0",
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1",
     "ts-jest": "^29.4.11",
