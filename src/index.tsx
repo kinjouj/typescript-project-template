@@ -4,14 +4,9 @@ import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import Sample from './pages/Sample';
 
-const container = document.getElementById('root');
+const container = createRoot(document.getElementById('root')!); // eslint-disable-line
 
-if (container == null) {
-  throw new Error('ERROR');
-}
-
-const root = createRoot(container);
-root.render(
+container.render(
   <React.StrictMode>
     <HashRouter>
       <Routes>
