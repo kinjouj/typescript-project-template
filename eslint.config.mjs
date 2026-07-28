@@ -6,7 +6,6 @@ import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import globals from "globals";
 import checkFile from "eslint-plugin-check-file";
-import jest from "eslint-plugin-jest";
 import importPlugin from "eslint-plugin-import";
 import perfectionist from "eslint-plugin-perfectionist";
 
@@ -38,13 +37,10 @@ export default defineConfig(
       "react-hooks": reactHooks,
       "@stylistic": stylistic,
       "check-file": checkFile,
-      "jest": jest,
       "import": importPlugin,
       perfectionist,
     },
     rules: {
-      ...jest.configs["recommended"].rules,
-      ...jest.configs["style"].rules,
       "curly": ["error", "all"],
       "eqeqeq": ["error", "always", { "null": "always" }],
       "no-empty": ["error", { allowEmptyCatch: false }],
