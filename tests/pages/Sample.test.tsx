@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Outlet, Route, Routes } from 'react-router';
-import { vi } from 'vitest';
 import Sample from '../../src/pages/Sample';
 
 describe('Sample', () => {

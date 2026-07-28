@@ -13,8 +13,7 @@
     "strict": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
-    "isolatedModules": true,
-    "types": ["node"]
+    "isolatedModules": true
   },
   "include": ["src/**/*"]
 }
