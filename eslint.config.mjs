@@ -58,6 +58,7 @@ export default defineConfig(
           "functions": "ignore",
         },
       ],
+      "@stylistic/jsx-one-expression-per-line": "off",
       "@stylistic/jsx-quotes": ["error", "prefer-double"],
       "@stylistic/max-statements-per-line": ["error", { max: 2 }],
       "@stylistic/no-multi-spaces": [
