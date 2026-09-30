@@ -19,7 +19,7 @@ describe('Sample', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByText('Sample test')).toBeTruthy();
+    expect(screen.getByText('Sample test')).toBeInTheDocument();
     screen.debug();
   });
 });
