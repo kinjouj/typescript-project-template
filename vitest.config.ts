@@ -7,8 +7,7 @@ export default defineConfig({
   test: {
     include: ['tests/**/*.test.{ts,tsx}'],
     globals: true,
-    environment: 'jsdom',
-    pool: 'vmThreads',
+    environment: 'happy-dom',
     css: false,
     setupFiles: ['tests/setupTests.ts'],
     clearMocks: true,
