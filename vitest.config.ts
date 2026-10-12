@@ -7,11 +7,13 @@ export default defineConfig({
   test: {
     include: ['tests/**/*.test.{ts,tsx}'],
     globals: true,
+    pool: 'vmThreads',
     environment: 'happy-dom',
     css: false,
     setupFiles: ['tests/setupTests.ts'],
-    clearMocks: true,
+    mockReset: true,
     restoreMocks: true,
+    unstubGlobals: true,
     coverage: {
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],
